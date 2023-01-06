@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     /// Method <c>MoveX</c> enables x inputs and movement.
     /// <param>percent</param>: A range of 0.0f to 1.0f for movement strength.
     /// </summary>
+
     void MoveX(float percent) {
         if (percent < 0.0f || percent > 1.0f) {
             throw new ArgumentException(String.Format("{0} is not in the range of [0.0f, 1.0f].", percent), "percent");
@@ -45,8 +46,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(transform.right * vx);
         // limit x velocity
         rb.velocity = new Vector2(Vector2.ClampMagnitude(rb.velocity, MAX_VEL_X).x, rb.velocity.y);
-    }
-
+    } 
     void StartFalling() {
         // start falling state if the velocity is negative
         const float NEGATIVE_VEL = -0.5f;
